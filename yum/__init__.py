@@ -4896,7 +4896,7 @@ much more problems).
         txmbr = self.tsInfo.addUpdate(upkg, ipkg)
         if requiringPo:
             txmbr.setAsDep(requiringPo)
-        if ('reason' in ipkg.yumdb_info and ipkg.yumdb_info.reason == 'dep'):
+        if (not txmbr.reason and 'reason' in ipkg.yumdb_info and ipkg.yumdb_info.reason == 'dep'):
             txmbr.reason = 'dep'
         return txmbr
 
